@@ -1,5 +1,5 @@
 import { Outlet, Link, useLocation } from "react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "motion/react";
 import { Phone, Menu, X, Instagram, Globe } from "lucide-react";
 import logoImg from "../../imports/logo.png";
@@ -12,6 +12,10 @@ const NAV_LINKS = [
   { path: "/contact", label: "Contact" },
 ];
 
+function scrollToTop() {
+  window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+}
+
 export function Layout() {
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
@@ -19,6 +23,10 @@ export function Layout() {
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (y) => setScrolled(y > 40));
+
+  useEffect(() => {
+    scrollToTop();
+  }, [location.pathname]);
 
   const isActive = (path: string) =>
     path === "/" ? location.pathname === "/" : location.pathname.startsWith(path);
@@ -37,7 +45,7 @@ export function Layout() {
         <div className="max-w-7xl mx-auto px-5 lg:px-8 flex items-center justify-between" style={{ height: 72 }}>
 
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 group flex-shrink-0">
+          <Link to="/" onClick={scrollToTop} className="flex items-center gap-2.5 group flex-shrink-0">
             <img
               src={logoImg}
               alt="Navire Express"
@@ -55,6 +63,7 @@ export function Layout() {
               <Link
                 key={link.path}
                 to={link.path}
+                onClick={scrollToTop}
                 className={`relative text-[13px] pb-0.5 transition-colors ${
                   isActive(link.path)
                     ? "text-[#E84B1B] font-semibold"
@@ -107,7 +116,10 @@ export function Layout() {
                   <Link
                     key={link.path}
                     to={link.path}
-                    onClick={() => setMenuOpen(false)}
+                    onClick={() => {
+                      scrollToTop();
+                      setMenuOpen(false);
+                    }}
                     className={`py-3 px-4 rounded-xl text-sm transition-colors ${
                       isActive(link.path)
                         ? "bg-[#fff1ec] text-[#E84B1B] font-semibold"
@@ -142,7 +154,7 @@ export function Layout() {
 
             {/* Brand */}
             <div className="sm:col-span-2 lg:col-span-1">
-              <Link to="/" className="flex items-center gap-3 mb-4">
+              <Link to="/" onClick={scrollToTop} className="flex items-center gap-3 mb-4">
                 <img src={logoImg} alt="Navire Express" className="w-10 h-10 object-contain" />
                 <span className="font-bold text-[#111] text-[15px]">Navire Express</span>
               </Link>
@@ -157,7 +169,7 @@ export function Layout() {
               <ul className="space-y-2.5">
                 {NAV_LINKS.map((link) => (
                   <li key={link.path}>
-                    <Link to={link.path} className="text-sm text-[#444] hover:text-[#E84B1B] transition-colors">
+                    <Link to={link.path} onClick={scrollToTop} className="text-sm text-[#444] hover:text-[#E84B1B] transition-colors">
                       {link.label}
                     </Link>
                   </li>

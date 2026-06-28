@@ -94,7 +94,7 @@ export function Home() {
 
         {/* Watermark local */}
         <div
-          className="absolute right-[-4%] top-1/2 -translate-y-[55%] select-none pointer-events-none"
+          className="absolute left-[-6%] top-1/2 -translate-y-[55%] select-none pointer-events-none"
           style={{ zIndex: 0 }}
         >
           <span
@@ -105,9 +105,39 @@ export function Home() {
           </span>
         </div>
 
+        {/* Camion géant, partiellement hors écran à droite */}
+        <motion.div
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
+          className="absolute top-1/2 -translate-y-[46%] right-0 pointer-events-none select-none"
+          style={{ zIndex: 1 }}
+          aria-hidden
+        >
+          <img
+            src={truckImg}
+            alt=""
+            className="h-auto block w-[clamp(480px,92vw,1040px)] translate-x-[28%] sm:translate-x-[24%] lg:translate-x-[20%]"
+            style={{
+              filter:
+                "drop-shadow(-16px 28px 56px rgba(43,79,203,0.14)) drop-shadow(0 24px 48px rgba(0,0,0,0.09))",
+            }}
+          />
+        </motion.div>
+
+        {/* Dégradé pour la lisibilité du texte */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            zIndex: 2,
+            background:
+              "linear-gradient(to right, #fff 0%, #fff 38%, rgba(255,255,255,0.92) 52%, rgba(255,255,255,0.55) 68%, transparent 82%)",
+          }}
+        />
+
         {/* Contenu principal */}
         <div className="flex-1 relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full flex items-center py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] items-center gap-10 w-full">
+          <div className="max-w-lg sm:max-w-xl lg:max-w-2xl">
 
             {/* Texte */}
             <div>
@@ -130,8 +160,8 @@ export function Home() {
                 className="text-[#111] leading-[0.93]"
                 style={{ fontSize: "clamp(56px, 9vw, 128px)", fontWeight: 900, letterSpacing: "-0.04em" }}
               >
-                Déménageurs<br />
-                <span style={{ color: "#E84B1B" }}>à Montréal.</span>
+                Tout part.<br />
+                <span style={{ color: "#E84B1B" }}>Tout arrive.</span>
               </motion.h1>
 
               <motion.p
@@ -165,21 +195,6 @@ export function Home() {
                 </Link>
               </motion.div>
             </div>
-
-            {/* Camion */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.85, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
-              className="flex justify-center items-center"
-            >
-              <img
-                src={truckImg}
-                alt="Navire Express"
-                className="w-full max-w-[420px] lg:max-w-[580px] h-auto"
-                style={{ filter: "drop-shadow(0 20px 40px rgba(0,0,0,0.10))" }}
-              />
-            </motion.div>
           </div>
         </div>
 
