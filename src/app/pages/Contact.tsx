@@ -39,7 +39,7 @@ export function Contact() {
   const labelClass = "block text-[11px] font-semibold uppercase tracking-[0.22em] text-[#888] mb-2";
 
   return (
-    <div className="font-[Inter,sans-serif]">
+    <div>
 
       <PageHero
         label="Nous joindre"

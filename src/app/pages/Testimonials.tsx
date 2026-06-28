@@ -133,7 +133,7 @@ function QuoteMark() {
 
 export function Testimonials() {
   return (
-    <div className="font-[Inter,sans-serif]">
+    <div>
 
       <PageHero
         label="Témoignages"

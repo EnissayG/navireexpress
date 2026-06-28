@@ -72,7 +72,7 @@ const DIFFERENTIATORS = [
 
 export function About() {
   return (
-    <div className="font-[Inter,sans-serif]">
+    <div>
 
       <PageHero
         label="À propos"

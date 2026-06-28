@@ -129,14 +129,14 @@ export function Home() {
             <div>
               <div className="flex items-center gap-3 mb-8">
                 <div className="w-5 h-px bg-[#E84B1B]" />
-                <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#888]">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#888]">
                   Montréal · Depuis 2020
                 </span>
               </div>
 
               <h1
-                className="text-[#111] leading-[0.95]"
-                style={{ fontSize: "clamp(48px, 8vw, 112px)", fontWeight: 900, letterSpacing: "-0.04em" }}
+                className="text-[#111] leading-[1.02]"
+                style={{ fontSize: "clamp(44px, 7.5vw, 96px)" }}
               >
                 Un service de
                 <br />

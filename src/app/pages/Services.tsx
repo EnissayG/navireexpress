@@ -112,7 +112,7 @@ const AREAS = [
 
 export function Services() {
   return (
-    <div className="font-[Inter,sans-serif]">
+    <div>
 
       <PageHero
         label="Nos services"
