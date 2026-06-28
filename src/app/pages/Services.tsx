@@ -2,6 +2,7 @@ import { Link } from "react-router";
 import { Truck, Building2, PackageCheck, Users, Phone } from "lucide-react";
 import { Reveal } from "../components/Reveal";
 import { PageHeader, HeroLeadMain } from "../components/PageHeader";
+import { FloatingAreas } from "../components/FloatingAreas";
 
 function PillSep({ label }: { label?: string }) {
   return (
@@ -197,20 +198,7 @@ export function Services() {
               </p>
             </Reveal>
 
-            <Reveal delay={0.06} className="flex flex-wrap gap-3">
-              {AREAS.map((area, i) => (
-                <Reveal
-                  key={i}
-                  delay={i * 0.03}
-                  className="group flex items-center gap-2 px-5 py-3 bg-white border border-[#e8e8e8] rounded-full text-sm text-[#444] hover:border-[#2B4FCB] hover:text-[#2B4FCB] hover:shadow-md transition-all cursor-default"
-                >
-                  <span
-                    className="w-1.5 h-1.5 rounded-full bg-[#E84B1B] group-hover:bg-[#2B4FCB] transition-colors flex-shrink-0"
-                  />
-                  {area}
-                </Reveal>
-              ))}
-            </Reveal>
+            <FloatingAreas areas={AREAS} />
           </div>
         </div>
       </section>
