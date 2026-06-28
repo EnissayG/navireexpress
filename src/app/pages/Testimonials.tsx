@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import { Star, Phone } from "lucide-react";
 import { Reveal } from "../components/Reveal";
 import { PageHero } from "../components/PageHero";
-import temoignageHeroImg from "../../imports/temoignage.png";
+import temoignageHeroImg from "../../imports/temoignage.jpg";
 
 function PillSep({ label }: { label?: string }) {
   return (
@@ -145,7 +145,7 @@ export function Testimonials() {
           </>
         }
         image={temoignageHeroImg}
-        imageAlt="Famille heureuse devant sa nouvelle maison après un déménagement"
+        imageAlt="Nouvelle maison, clés en main"
       >
         <div className="flex flex-wrap gap-0 mt-2">
           {[

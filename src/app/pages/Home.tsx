@@ -135,8 +135,8 @@ export function Home() {
               </div>
 
               <h1
-                className="text-[#111] leading-[1.02]"
-                style={{ fontSize: "clamp(44px, 7.5vw, 96px)" }}
+                className="text-[#111] leading-[0.95] font-extrabold"
+                style={{ fontSize: "clamp(44px, 7.5vw, 96px)", letterSpacing: "-0.04em" }}
               >
                 Un service de
                 <br />

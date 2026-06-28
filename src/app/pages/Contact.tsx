@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Phone, Mail, MapPin, Clock, Send, Instagram, Globe } from "lucide-react";
 import { Reveal } from "../components/Reveal";
 import { PageHero } from "../components/PageHero";
-import contactHeroImg from "../../imports/contact.png";
+import contactHeroImg from "../../imports/contact.jpg";
 
 function PillSep({ label }: { label?: string }) {
   return (
@@ -52,7 +52,7 @@ export function Contact() {
         }
         description="Estimation gratuite, réponse rapide. Un vrai humain vous rappelle, pas un bot."
         image={contactHeroImg}
-        imageAlt="Service à la clientèle Navire Express"
+        imageAlt="Conseiller au téléphone"
       />
 
       <PillSep label="Nous joindre" />

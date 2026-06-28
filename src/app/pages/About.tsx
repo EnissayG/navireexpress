@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import { Phone } from "lucide-react";
 import { Reveal } from "../components/Reveal";
 import { PageHero } from "../components/PageHero";
-import aproposHeroImg from "../../imports/apropos.png";
+import aproposHeroImg from "../../imports/apropos.jpg";
 
 function PillSep({ label }: { label?: string }) {
   return (
@@ -85,7 +85,7 @@ export function About() {
         }
         description="Il y a une différence entre transporter des meubles et accompagner quelqu'un dans un moment de vie important. On a choisi la deuxième option."
         image={aproposHeroImg}
-        imageAlt="Équipe Navire Express devant un camion de déménagement"
+        imageAlt="Équipe de déménageurs au travail"
       />
 
       <PillSep label="Notre histoire" />

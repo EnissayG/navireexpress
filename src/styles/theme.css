@@ -2,8 +2,7 @@
 
 :root {
   --font-size: 16px;
-  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
-  --font-body: 'Source Sans 3', system-ui, -apple-system, sans-serif;
+  --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
   --background: #ffffff;
   --foreground: #111111;
   --card: #ffffff;
@@ -115,7 +114,6 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   --font-sans: var(--font-body);
-  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
 }
 
 @layer base {
@@ -131,9 +129,14 @@
   h1,
   h2,
   h3 {
-    font-family: var(--font-display);
-    font-weight: 600;
-    letter-spacing: -0.02em;
+    font-family: var(--font-body);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  h1 {
+    font-weight: 800;
+    letter-spacing: -0.035em;
   }
 
   /**

@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import { Truck, Building2, PackageCheck, Users, Phone } from "lucide-react";
 import { Reveal } from "../components/Reveal";
 import { PageHero } from "../components/PageHero";
-import serviceHeroImg from "../../imports/service.png";
+import serviceHeroImg from "../../imports/service.jpg";
 
 function PillSep({ label }: { label?: string }) {
   return (
@@ -125,7 +125,7 @@ export function Services() {
         }
         description="De la boîte de carton à la clé du nouveau domicile, Navire Express couvre l'ensemble du processus de déménagement."
         image={serviceHeroImg}
-        imageAlt="Camion Navire Express sur la route"
+        imageAlt="Camion de déménagement sur la route"
       />
 
       <PillSep label="Nos services" />
