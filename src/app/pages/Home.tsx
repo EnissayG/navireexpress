@@ -105,17 +105,15 @@ export function Home() {
           </span>
         </div>
 
-        {/* Camion, partiellement hors écran à droite */}
+        {/* Camion desktop — partiellement hors écran à droite */}
         <div
-          className="absolute pointer-events-none select-none z-[1]
-            bottom-[-2%] right-0
-            lg:top-1/2 lg:bottom-auto lg:-translate-y-[42%]"
+          className="hidden lg:block absolute pointer-events-none select-none z-[1] top-1/2 -translate-y-[42%] right-0"
           aria-hidden
         >
           <img
             src={truckImg}
             alt=""
-            className="h-auto block w-[min(145vw,1040px)] translate-x-[24%] sm:translate-x-[22%] lg:translate-x-[18%]"
+            className="h-auto block w-[min(145vw,1040px)] translate-x-[18%]"
             style={{
               filter:
                 "drop-shadow(-12px 24px 48px rgba(43,79,203,0.12)) drop-shadow(0 20px 40px rgba(0,0,0,0.08))",
@@ -124,8 +122,8 @@ export function Home() {
         </div>
 
         {/* Contenu principal */}
-        <div className="flex-1 relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full flex items-center py-16 pb-52 sm:pb-44 lg:pb-16">
-          <div className="max-w-lg sm:max-w-xl lg:max-w-2xl">
+        <div className="flex-1 relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full flex items-center py-16 pb-6 lg:pb-16">
+          <div className="max-w-lg sm:max-w-xl lg:max-w-2xl w-full">
             <div>
               <div className="flex items-center gap-3 mb-8">
                 <div className="w-5 h-px bg-[#E84B1B]" />
@@ -165,6 +163,19 @@ export function Home() {
                 >
                   Devis gratuit <ArrowRight className="w-4 h-4" />
                 </Link>
+              </div>
+
+              {/* Camion mobile — visible dans le hero */}
+              <div className="lg:hidden relative mt-10 -mx-2 h-[200px] sm:h-[230px] overflow-hidden pointer-events-none select-none">
+                <img
+                  src={truckImg}
+                  alt="Navire Express"
+                  className="absolute right-0 bottom-0 w-[108%] max-w-[480px] translate-x-[10%]"
+                  style={{
+                    filter:
+                      "drop-shadow(-8px 16px 32px rgba(43,79,203,0.10)) drop-shadow(0 12px 28px rgba(0,0,0,0.07))",
+                  }}
+                />
               </div>
             </div>
           </div>
