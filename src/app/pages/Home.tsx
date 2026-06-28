@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { Link } from "react-router";
 import { ArrowRight, Phone, Truck, Building2, PackageCheck, Users } from "lucide-react";
 import { TruckScene } from "../components/TruckScene";
+import { Reveal } from "../components/Reveal";
 import truckImg from "../../imports/truck.png";
 
 // ── Ticker de quartiers ───────────────────────────────────────────────────────
@@ -94,8 +95,7 @@ export function Home() {
 
         {/* Watermark local */}
         <div
-          className="absolute left-[-6%] top-1/2 -translate-y-[55%] select-none pointer-events-none"
-          style={{ zIndex: 0 }}
+          className="absolute left-[-6%] top-1/2 -translate-y-[55%] select-none pointer-events-none z-0"
         >
           <span
             className="font-black leading-none text-[#f0f0f0]"
@@ -105,81 +105,51 @@ export function Home() {
           </span>
         </div>
 
-        {/* Camion géant, partiellement hors écran à droite */}
-        <motion.div
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute top-1/2 -translate-y-[46%] right-0 pointer-events-none select-none"
-          style={{ zIndex: 1 }}
+        {/* Camion, partiellement hors écran à droite */}
+        <div
+          className="absolute pointer-events-none select-none z-[1]
+            bottom-[-2%] right-0
+            lg:top-1/2 lg:bottom-auto lg:-translate-y-[42%]"
           aria-hidden
         >
           <img
             src={truckImg}
             alt=""
-            className="h-auto block w-[clamp(480px,92vw,1040px)] translate-x-[28%] sm:translate-x-[24%] lg:translate-x-[20%]"
+            className="h-auto block w-[min(145vw,1040px)] translate-x-[24%] sm:translate-x-[22%] lg:translate-x-[18%]"
             style={{
               filter:
-                "drop-shadow(-16px 28px 56px rgba(43,79,203,0.14)) drop-shadow(0 24px 48px rgba(0,0,0,0.09))",
+                "drop-shadow(-12px 24px 48px rgba(43,79,203,0.12)) drop-shadow(0 20px 40px rgba(0,0,0,0.08))",
             }}
           />
-        </motion.div>
-
-        {/* Dégradé pour la lisibilité du texte */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            zIndex: 2,
-            background:
-              "linear-gradient(to right, #fff 0%, #fff 38%, rgba(255,255,255,0.92) 52%, rgba(255,255,255,0.55) 68%, transparent 82%)",
-          }}
-        />
+        </div>
 
         {/* Contenu principal */}
-        <div className="flex-1 relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full flex items-center py-16">
+        <div className="flex-1 relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full flex items-center py-16 pb-52 sm:pb-44 lg:pb-16">
           <div className="max-w-lg sm:max-w-xl lg:max-w-2xl">
-
-            {/* Texte */}
             <div>
-              <motion.div
-                initial={{ opacity: 0, x: -14 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.45 }}
-                className="flex items-center gap-3 mb-8"
-              >
+              <div className="flex items-center gap-3 mb-8">
                 <div className="w-5 h-px bg-[#E84B1B]" />
                 <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#888]">
                   Montréal · Depuis 2020
                 </span>
-              </motion.div>
+              </div>
 
-              <motion.h1
-                initial={{ opacity: 0, y: 36 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.06 }}
-                className="text-[#111] leading-[0.93]"
-                style={{ fontSize: "clamp(56px, 9vw, 128px)", fontWeight: 900, letterSpacing: "-0.04em" }}
+              <h1
+                className="text-[#111] leading-[0.95]"
+                style={{ fontSize: "clamp(48px, 8vw, 112px)", fontWeight: 900, letterSpacing: "-0.04em" }}
               >
-                Tout part.<br />
-                <span style={{ color: "#E84B1B" }}>Tout arrive.</span>
-              </motion.h1>
+                Un service de<br />
+                <span style={{ color: "#E84B1B" }}>déménagement fiable.</span>
+              </h1>
 
-              <motion.p
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, delay: 0.22 }}
+              <p
                 className="text-[#555] leading-relaxed mt-8 mb-10 max-w-md"
                 style={{ fontSize: "clamp(15px, 1.4vw, 18px)" }}
               >
-                Résidentiel et commercial. Devis clair, ponctualité, zéro frais cachés.
-              </motion.p>
+                Résidentiel et commercial. Devis clair, équipe ponctuelle, joignable 7 jours sur 7.
+              </p>
 
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.38 }}
-                className="flex flex-wrap gap-3"
-              >
+              <div className="flex flex-wrap gap-3">
                 <a
                   href="tel:5148390212"
                   className="inline-flex items-center gap-2 bg-[#E84B1B] text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-[#d04016] transition-all hover:shadow-xl hover:shadow-[#E84B1B]/25 active:scale-[0.97]"
@@ -193,7 +163,7 @@ export function Home() {
                 >
                   Devis gratuit <ArrowRight className="w-4 h-4" />
                 </Link>
-              </motion.div>
+              </div>
             </div>
           </div>
         </div>
@@ -208,18 +178,15 @@ export function Home() {
                 { n: "0",    label: "Frais cachés",        color: "#E84B1B" },
                 { n: "24h",  label: "Réponse devis",       color: "#2B4FCB" },
               ].map((s, i) => (
-                <motion.div
+                <div
                   key={i}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.45 + i * 0.06 }}
                   className="py-7 px-6 text-center"
                 >
                   <div className="font-black mb-0.5" style={{ fontSize: "clamp(22px, 2.5vw, 32px)", color: s.color, letterSpacing: "-0.03em" }}>
                     {s.n}
                   </div>
                   <div className="text-[10px] uppercase tracking-widest text-[#aaa]">{s.label}</div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -235,12 +202,7 @@ export function Home() {
 
       <section className="pt-4 pb-44 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-20"
-          >
+          <Reveal className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-20">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#E84B1B] mb-4">Ce qu'on fait</p>
               <h2 className="font-bold text-[#111]" style={{ fontSize: "clamp(28px, 4vw, 48px)", letterSpacing: "-0.025em" }}>
@@ -253,16 +215,13 @@ export function Home() {
             >
               Voir les détails <ArrowRight className="w-4 h-4" />
             </Link>
-          </motion.div>
+          </Reveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {SERVICES.map((s, i) => (
-              <motion.div
+              <Reveal
                 key={i}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
+                delay={i * 0.06}
                 className="group p-8 border border-[#e8e8e8] rounded-2xl hover:border-[#2B4FCB]/40 hover:shadow-xl hover:shadow-[#2B4FCB]/6 transition-all bg-white"
               >
                 <div className="w-11 h-11 rounded-xl bg-[#eef2ff] flex items-center justify-center mb-6 group-hover:bg-[#2B4FCB] transition-colors">
@@ -270,7 +229,7 @@ export function Home() {
                 </div>
                 <p className="font-bold text-[#111] mb-3">{s.title}</p>
                 <p className="text-sm text-[#666] leading-relaxed">{s.desc}</p>
-              </motion.div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -282,17 +241,12 @@ export function Home() {
       {/* ── Valeurs ───────────────────────────────────────────────────────── */}
       <section className="pt-20 pb-44 bg-[#f5f5f5]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-20"
-          >
+          <Reveal className="mb-20">
             <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#E84B1B] mb-4">Pourquoi nous</p>
             <h2 className="font-bold text-[#111]" style={{ fontSize: "clamp(28px, 4vw, 48px)", letterSpacing: "-0.025em" }}>
               Ce qu'on fait<br />différemment.
             </h2>
-          </motion.div>
+          </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#e4e4e4]">
             {[
@@ -301,12 +255,10 @@ export function Home() {
               { num: "03", title: "On prend le temps de bien faire.",     body: "Piano au 4ᵉ sans ascenseur? Gros meuble serré? On n'a pas tout vu, mais on ne se précipite pas. Chaque déménagement, on le prépare comme si c'était le nôtre." },
               { num: "04", title: "Joignables quand ça compte.",            body: "Pas de boîte vocale sans fin. Un vrai humain au (514) 839-0212. On vous rappelle vite, même en soirée ou le week-end si c'est urgent." },
             ].map((item, i) => (
-              <motion.div
+              <Reveal
                 key={i}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
+                delay={i * 0.05}
+                distance={8}
                 className="bg-white p-10 lg:p-12 group hover:bg-[#2B4FCB] transition-colors duration-300"
               >
                 <p className="text-[11px] font-bold text-[#E84B1B] uppercase tracking-widest mb-4">{item.num}</p>
@@ -314,7 +266,7 @@ export function Home() {
                   {item.title}
                 </h3>
                 <p className="text-sm text-[#555] group-hover:text-white/70 leading-relaxed transition-colors">{item.body}</p>
-              </motion.div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -325,13 +277,14 @@ export function Home() {
 
       <section className="bg-[#2B4FCB] pt-12 pb-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
-          <motion.div initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#E84B1B] mb-3">Sans engagement</p>
-            <h2 className="font-bold text-white" style={{ fontSize: "clamp(26px, 3.5vw, 40px)", letterSpacing: "-0.025em" }}>
-              Prêt à déménager?
-            </h2>
-          </motion.div>
-          <motion.div initial={{ opacity: 0, x: 16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="flex flex-wrap gap-4">
+          <Reveal className="flex flex-col md:flex-row items-center justify-between gap-8 w-full">
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#E84B1B] mb-3">Sans engagement</p>
+              <h2 className="font-bold text-white" style={{ fontSize: "clamp(26px, 3.5vw, 40px)", letterSpacing: "-0.025em" }}>
+                Prêt à déménager?
+              </h2>
+            </div>
+            <div className="flex flex-wrap gap-4">
             <a
               href="tel:5148390212"
               className="inline-flex items-center gap-2 bg-[#E84B1B] text-white px-7 py-4 rounded-full font-bold text-sm hover:bg-[#d04016] transition-colors"
@@ -345,7 +298,8 @@ export function Home() {
             >
               Formulaire en ligne
             </Link>
-          </motion.div>
+            </div>
+          </Reveal>
         </div>
       </section>
 

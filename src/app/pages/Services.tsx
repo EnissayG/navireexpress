@@ -1,6 +1,8 @@
-import { motion } from "motion/react";
 import { Link } from "react-router";
 import { Truck, Building2, PackageCheck, Users, Phone } from "lucide-react";
+import { Reveal } from "../components/Reveal";
+import { PageHero } from "../components/PageHero";
+import serviceHeroImg from "../../imports/service.png";
 
 function PillSep({ label }: { label?: string }) {
   return (
@@ -112,34 +114,19 @@ export function Services() {
   return (
     <div className="font-[Inter,sans-serif]">
 
-      {/* ── Hero ── */}
-      <section className="py-32 bg-white border-b border-[#e8e8e8]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-2xl"
-          >
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-8 h-px bg-[#E84B1B]" />
-              <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#E84B1B]">Nos services</span>
-            </div>
-            <h1
-              className="font-bold text-[#111] mb-7 leading-[1.05]"
-              style={{ fontSize: "clamp(38px, 5.5vw, 68px)", letterSpacing: "-0.03em" }}
-            >
-              Des solutions pour
-              <br />
-              <span className="text-[#2B4FCB]">chaque situation</span>
-            </h1>
-            <p className="text-[#555] leading-relaxed" style={{ fontSize: "clamp(15px, 1.5vw, 18px)" }}>
-              De la boîte de carton à la clé du nouveau domicile, Navire Express couvre
-              l'ensemble du processus de déménagement.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        label="Nos services"
+        title={
+          <>
+            Des solutions pour
+            <br />
+            <span className="text-[#2B4FCB]">chaque situation</span>
+          </>
+        }
+        description="De la boîte de carton à la clé du nouveau domicile, Navire Express couvre l'ensemble du processus de déménagement."
+        image={serviceHeroImg}
+        imageAlt="Camion Navire Express sur la route"
+      />
 
       <PillSep label="Nos services" />
 
@@ -147,12 +134,9 @@ export function Services() {
       <section className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-8">
           {SERVICES.map((s, i) => (
-            <motion.div
+            <Reveal
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
+              delay={i * 0.05}
               className="group grid grid-cols-1 lg:grid-cols-[340px_1fr] bg-white rounded-2xl border border-[#e8e8e8] overflow-hidden hover:shadow-lg transition-all hover:border-[#2B4FCB]/30"
             >
               {/* Left panel */}
@@ -199,7 +183,7 @@ export function Services() {
                   ))}
                 </ul>
               </div>
-            </motion.div>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -210,11 +194,7 @@ export function Services() {
       <section className="py-32 bg-[#f5f5f5]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-16 items-start">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
+            <Reveal>
               <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#E84B1B] mb-4">Zone de service</p>
               <h2
                 className="font-bold text-[#111] mb-5"
@@ -225,31 +205,22 @@ export function Services() {
               <p className="text-[#666] text-[15px] leading-relaxed">
                 De l'île à la Rive-Sud, notre équipe se déplace partout dans la région métropolitaine.
               </p>
-            </motion.div>
+            </Reveal>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="flex flex-wrap gap-3"
-            >
+            <Reveal delay={0.06} className="flex flex-wrap gap-3">
               {AREAS.map((area, i) => (
-                <motion.div
+                <Reveal
                   key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
+                  delay={i * 0.03}
                   className="group flex items-center gap-2 px-5 py-3 bg-white border border-[#e8e8e8] rounded-full text-sm text-[#444] hover:border-[#2B4FCB] hover:text-[#2B4FCB] hover:shadow-md transition-all cursor-default"
                 >
                   <span
                     className="w-1.5 h-1.5 rounded-full bg-[#E84B1B] group-hover:bg-[#2B4FCB] transition-colors flex-shrink-0"
                   />
                   {area}
-                </motion.div>
+                </Reveal>
               ))}
-            </motion.div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -259,11 +230,7 @@ export function Services() {
       {/* ── CTA ── */}
       <section className="bg-[#2B4FCB] py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+          <Reveal>
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/50 mb-5">Prêt à déménager?</p>
             <h2
               className="font-bold text-white mb-4 leading-tight"
@@ -287,7 +254,7 @@ export function Services() {
                 Écrire un message
               </Link>
             </div>
-          </motion.div>
+          </Reveal>
         </div>
       </section>
     </div>

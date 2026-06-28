@@ -1,6 +1,8 @@
-import { motion } from "motion/react";
 import { Link } from "react-router";
 import { Phone } from "lucide-react";
+import { Reveal } from "../components/Reveal";
+import { PageHero } from "../components/PageHero";
+import aproposHeroImg from "../../imports/apropos.png";
 
 function PillSep({ label }: { label?: string }) {
   return (
@@ -72,33 +74,19 @@ export function About() {
   return (
     <div className="font-[Inter,sans-serif]">
 
-      {/* ── Hero ── */}
-      <section className="py-32 bg-white border-b border-[#e8e8e8]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl"
-          >
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-8 h-px bg-[#E84B1B]" />
-              <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#E84B1B]">À propos</span>
-            </div>
-            <h1
-              className="font-bold text-[#111] mb-7 leading-[1.05]"
-              style={{ fontSize: "clamp(38px, 5.5vw, 68px)", letterSpacing: "-0.03em" }}
-            >
-              On déménage des gens
-              <br />
-              <span className="text-[#2B4FCB]">depuis 2020.</span> Pas des boîtes.
-            </h1>
-            <p className="text-[#555] leading-relaxed max-w-xl" style={{ fontSize: "clamp(15px, 1.5vw, 18px)" }}>
-              Il y a une différence entre transporter des meubles et accompagner quelqu'un dans un moment de vie important. On a choisi la deuxième option.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        label="À propos"
+        title={
+          <>
+            On déménage des gens
+            <br />
+            <span className="text-[#2B4FCB]">depuis 2020.</span> Pas des boîtes.
+          </>
+        }
+        description="Il y a une différence entre transporter des meubles et accompagner quelqu'un dans un moment de vie important. On a choisi la deuxième option."
+        image={aproposHeroImg}
+        imageAlt="Équipe Navire Express devant un camion de déménagement"
+      />
 
       <PillSep label="Notre histoire" />
 
@@ -108,12 +96,7 @@ export function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
 
             {/* Story */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
+            <Reveal>
               <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#E84B1B] mb-5">Notre histoire</p>
               <h2
                 className="font-bold text-[#111] mb-8 leading-tight"
@@ -132,23 +115,14 @@ export function About() {
                   Quelques années plus tard, une poignée de familles et de commerces de Montréal nous ont fait confiance. Pas des centaines, mais chaque déménagement compte, et la plupart viennent aujourd'hui par recommandation.
                 </p>
               </div>
-            </motion.div>
+            </Reveal>
 
             {/* Stats grid */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.15 }}
-              className="grid grid-cols-2 gap-4"
-            >
+            <Reveal delay={0.08} className="grid grid-cols-2 gap-4">
               {STATS.map((s, i) => (
-                <motion.div
+                <Reveal
                   key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.1 + i * 0.08 }}
+                  delay={0.1 + i * 0.05}
                   className="bg-white rounded-2xl border border-[#e8e8e8] p-8 hover:shadow-lg transition-all group"
                 >
                   <div
@@ -164,9 +138,9 @@ export function About() {
                     className="w-0 group-hover:w-8 h-0.5 mt-4 rounded-full transition-all duration-300"
                     style={{ backgroundColor: s.color }}
                   />
-                </motion.div>
+                </Reveal>
               ))}
-            </motion.div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -177,12 +151,7 @@ export function About() {
       {/* ── Differentiators ── */}
       <section className="py-32 bg-[#f5f5f5]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16"
-          >
+          <Reveal className="mb-16">
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#E84B1B] mb-4">Ce qu'on est vraiment</p>
             <h2
               className="font-bold text-[#111]"
@@ -190,16 +159,13 @@ export function About() {
             >
               Pas de superlatifs.<br />Des faits.
             </h2>
-          </motion.div>
+          </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {DIFFERENTIATORS.map((item, i) => (
-              <motion.div
+              <Reveal
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
+                delay={i * 0.06}
                 className="bg-white rounded-2xl border border-[#e8e8e8] p-8 hover:shadow-lg transition-all group relative overflow-hidden"
               >
                 {/* Orange accent bar */}
@@ -220,7 +186,7 @@ export function About() {
                   </h3>
                   <p className="text-sm text-[#666] leading-relaxed">{item.body}</p>
                 </div>
-              </motion.div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -229,12 +195,7 @@ export function About() {
       {/* ── Timeline ── */}
       <section className="py-32 bg-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16"
-          >
+          <Reveal className="mb-16">
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#E84B1B] mb-4">Parcours</p>
             <h2
               className="font-bold text-[#111]"
@@ -242,7 +203,7 @@ export function About() {
             >
               Quelques années à bâtir
             </h2>
-          </motion.div>
+          </Reveal>
 
           <div className="relative">
             {/* Vertical connecting line */}
@@ -250,12 +211,9 @@ export function About() {
 
             <div className="space-y-0">
               {MILESTONES.map((m, i) => (
-                <motion.div
+                <Reveal
                   key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.12 }}
+                  delay={i * 0.06}
                   className="flex gap-8 items-start pb-12 last:pb-0"
                 >
                   {/* Dot + year */}
@@ -296,7 +254,7 @@ export function About() {
                     </h3>
                     <p className="text-sm text-[#666] leading-relaxed max-w-xl">{m.desc}</p>
                   </div>
-                </motion.div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -308,11 +266,7 @@ export function About() {
       {/* ── CTA ── */}
       <section className="bg-[#2B4FCB] py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+          <Reveal>
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/50 mb-5">Prêt à commencer?</p>
             <h2
               className="font-bold text-white mb-5 leading-tight"
@@ -336,7 +290,7 @@ export function About() {
                 Nous écrire
               </Link>
             </div>
-          </motion.div>
+          </Reveal>
         </div>
       </section>
     </div>

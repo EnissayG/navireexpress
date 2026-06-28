@@ -1,27 +1,18 @@
-import { motion } from "motion/react";
 import { Link } from "react-router";
 import { ArrowLeft, Home } from "lucide-react";
 
 export function NotFound() {
   return (
     <div className="min-h-[80vh] flex items-center justify-center bg-white px-6">
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-center max-w-lg"
-      >
+      <div className="text-center max-w-lg">
         {/* Big 404 */}
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+        <div
           className="mb-6 select-none"
           style={{ fontSize: "clamp(100px, 20vw, 180px)", fontWeight: 900, letterSpacing: "-0.06em", lineHeight: 1, color: "#E84B1B", opacity: 0.12 }}
           aria-hidden
         >
           404
-        </motion.div>
+        </div>
 
         {/* Actual 404 label */}
         <div className="flex items-center justify-center gap-3 mb-6 -mt-4">
@@ -69,7 +60,7 @@ export function NotFound() {
             ))}
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

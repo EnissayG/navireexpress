@@ -1,6 +1,8 @@
-import { motion } from "motion/react";
 import { Link } from "react-router";
 import { Star, Phone } from "lucide-react";
+import { Reveal } from "../components/Reveal";
+import { PageHero } from "../components/PageHero";
+import temoignageHeroImg from "../../imports/temoignage.png";
 
 function PillSep({ label }: { label?: string }) {
   return (
@@ -133,53 +135,41 @@ export function Testimonials() {
   return (
     <div className="font-[Inter,sans-serif]">
 
-      {/* ── Hero ── */}
-      <section className="py-32 bg-white border-b border-[#e8e8e8]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-8 h-px bg-[#E84B1B]" />
-              <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#E84B1B]">Témoignages</span>
-            </div>
-            <h1
-              className="font-bold text-[#111] mb-8 leading-[1.05]"
-              style={{ fontSize: "clamp(38px, 5.5vw, 68px)", letterSpacing: "-0.03em" }}
+      <PageHero
+        label="Témoignages"
+        title={
+          <>
+            Ce que disent
+            <br />
+            <span className="text-[#2B4FCB]">nos clients</span>
+          </>
+        }
+        image={temoignageHeroImg}
+        imageAlt="Famille heureuse devant sa nouvelle maison après un déménagement"
+      >
+        <div className="flex flex-wrap gap-0 mt-2">
+          {[
+            { n: "Local", label: "Clients montréalais", color: "#E84B1B" },
+            { n: "Réels", label: "Avis authentiques", color: "#2B4FCB" },
+            { n: "2020", label: "Depuis", color: "#E84B1B" },
+          ].map((s, i) => (
+            <div
+              key={i}
+              className="pr-12 mr-12 last:pr-0 last:mr-0 border-r last:border-r-0 border-[#e8e8e8]"
             >
-              Ce que disent
-              <br />
-              <span className="text-[#2B4FCB]">nos clients</span>
-            </h1>
-
-            {/* Stats row */}
-            <div className="flex flex-wrap gap-0 mt-2">
-              {[
-                { n: "Local", label: "Clients montréalais", color: "#E84B1B" },
-                { n: "Réels", label: "Avis authentiques", color: "#2B4FCB" },
-                { n: "2020", label: "Depuis", color: "#E84B1B" },
-              ].map((s, i) => (
-                <div
-                  key={i}
-                  className="pr-12 mr-12 last:pr-0 last:mr-0 border-r last:border-r-0 border-[#e8e8e8]"
-                >
-                  <div
-                    className="font-black mb-1 leading-none"
-                    style={{ fontSize: "clamp(28px, 3.5vw, 42px)", color: s.color, letterSpacing: "-0.04em" }}
-                  >
-                    {s.n}
-                  </div>
-                  <div className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#888]">
-                    {s.label}
-                  </div>
-                </div>
-              ))}
+              <div
+                className="font-black mb-1 leading-none"
+                style={{ fontSize: "clamp(28px, 3.5vw, 42px)", color: s.color, letterSpacing: "-0.04em" }}
+              >
+                {s.n}
+              </div>
+              <div className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#888]">
+                {s.label}
+              </div>
             </div>
-          </motion.div>
+          ))}
         </div>
-      </section>
+      </PageHero>
 
       <PillSep label="Témoignages" />
 
@@ -190,12 +180,9 @@ export function Testimonials() {
             {TESTIMONIALS.map((t, i) => {
               const avatarColor = AVATAR_COLORS[i % AVATAR_COLORS.length];
               return (
-                <motion.div
+                <Reveal
                   key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: (i % 3) * 0.08 }}
+                  delay={(i % 3) * 0.05}
                   className="break-inside-avoid bg-white rounded-2xl border border-[#e8e8e8] p-8 hover:shadow-lg transition-all group"
                 >
                   {/* Quote mark decoration */}
@@ -226,7 +213,7 @@ export function Testimonials() {
                     </div>
                     <p className="text-[11px] text-[#ccc] flex-shrink-0">{t.date}</p>
                   </div>
-                </motion.div>
+                </Reveal>
               );
             })}
           </div>
@@ -236,12 +223,7 @@ export function Testimonials() {
       {/* ── Trust / Engagements ── */}
       <section className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
+          <Reveal className="text-center mb-16">
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#E84B1B] mb-4">Pourquoi nous faire confiance</p>
             <h2
               className="font-bold text-[#111]"
@@ -249,7 +231,7 @@ export function Testimonials() {
             >
               Nos engagements
             </h2>
-          </motion.div>
+          </Reveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
@@ -269,12 +251,9 @@ export function Testimonials() {
                 desc: "Nous ne sommes pas satisfaits tant que vous ne l'êtes pas. Simple.",
               },
             ].map((item, i) => (
-              <motion.div
+              <Reveal
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
+                delay={i * 0.06}
                 className="bg-white rounded-2xl border border-[#e8e8e8] p-8 hover:shadow-lg transition-all text-center relative overflow-hidden group"
               >
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#E84B1B] to-[#2B4FCB] opacity-0 group-hover:opacity-100 transition-opacity rounded-t-2xl" />
@@ -286,7 +265,7 @@ export function Testimonials() {
                   {item.title}
                 </h3>
                 <p className="text-sm text-[#666] leading-relaxed">{item.desc}</p>
-              </motion.div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -297,11 +276,7 @@ export function Testimonials() {
       {/* ── CTA ── */}
       <section className="bg-[#2B4FCB] py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+          <Reveal>
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/50 mb-5">Rejoignez nos clients satisfaits</p>
             <h2
               className="font-bold text-white mb-4 leading-tight"
@@ -325,7 +300,7 @@ export function Testimonials() {
                 Nous écrire
               </Link>
             </div>
-          </motion.div>
+          </Reveal>
         </div>
       </section>
     </div>

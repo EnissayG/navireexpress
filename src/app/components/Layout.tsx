@@ -25,7 +25,12 @@ export function Layout() {
   useMotionValueEvent(scrollY, "change", (y) => setScrolled(y > 40));
 
   useEffect(() => {
-    scrollToTop();
+    const id = requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        scrollToTop();
+      });
+    });
+    return () => cancelAnimationFrame(id);
   }, [location.pathname]);
 
   const isActive = (path: string) =>

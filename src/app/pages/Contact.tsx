@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { motion } from "motion/react";
 import { Phone, Mail, MapPin, Clock, Send, Instagram, Globe } from "lucide-react";
+import { Reveal } from "../components/Reveal";
+import { PageHero } from "../components/PageHero";
+import contactHeroImg from "../../imports/contact.png";
 
 function PillSep({ label }: { label?: string }) {
   return (
@@ -39,33 +41,19 @@ export function Contact() {
   return (
     <div className="font-[Inter,sans-serif]">
 
-      {/* ── Hero ── */}
-      <section className="py-32 bg-white border-b border-[#e8e8e8]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-2xl"
-          >
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-8 h-px bg-[#E84B1B]" />
-              <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#E84B1B]">Nous joindre</span>
-            </div>
-            <h1
-              className="font-bold text-[#111] mb-7 leading-[1.05]"
-              style={{ fontSize: "clamp(38px, 5.5vw, 68px)", letterSpacing: "-0.03em" }}
-            >
-              Parlons de votre
-              <br />
-              <span className="text-[#2B4FCB]">déménagement.</span>
-            </h1>
-            <p className="text-[#555] leading-relaxed" style={{ fontSize: "clamp(15px, 1.5vw, 18px)" }}>
-              Estimation gratuite, réponse rapide. Un vrai humain vous rappelle, pas un bot.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        label="Nous joindre"
+        title={
+          <>
+            Parlons de votre
+            <br />
+            <span className="text-[#2B4FCB]">déménagement.</span>
+          </>
+        }
+        description="Estimation gratuite, réponse rapide. Un vrai humain vous rappelle, pas un bot."
+        image={contactHeroImg}
+        imageAlt="Service à la clientèle Navire Express"
+      />
 
       <PillSep label="Nous joindre" />
 
@@ -79,12 +67,9 @@ export function Contact() {
               { icon: Globe, label: "Site web", value: "NavireExpress.com", link: "https://NavireExpress.com", accent: "#2B4FCB", accentBg: "#eef2ff" },
               { icon: Clock, label: "Disponibilité", value: "7 jours sur 7", link: undefined, accent: "#E84B1B", accentBg: "#fff1ec" },
             ].map((item, i) => (
-              <motion.div
+              <Reveal
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.07 }}
+                delay={i * 0.05}
                 className="bg-white rounded-2xl border border-[#e8e8e8] p-6 hover:shadow-md hover:border-transparent transition-all group"
               >
                 <div
@@ -109,7 +94,7 @@ export function Contact() {
                 ) : (
                   <p className="text-sm font-semibold text-[#111] leading-snug">{item.value}</p>
                 )}
-              </motion.div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -121,12 +106,7 @@ export function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-16">
 
             {/* ── Form ── */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
+            <Reveal>
               <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#E84B1B] mb-4">Devis gratuit</p>
               <h2
                 className="font-bold text-[#111] mb-10 leading-tight"
@@ -223,29 +203,19 @@ export function Contact() {
                 </div>
 
                 {sent && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="p-5 rounded-xl bg-green-50 border border-green-200 text-green-800 text-sm flex items-center gap-3"
-                  >
+                  <div className="p-5 rounded-xl bg-green-50 border border-green-200 text-green-800 text-sm flex items-center gap-3">
                     <span className="text-lg">✅</span>
                     <div>
                       <p className="font-semibold">Message envoyé!</p>
                       <p className="text-green-700/70 text-xs mt-0.5">On vous revient dans les 24 prochaines heures.</p>
                     </div>
-                  </motion.div>
+                  </div>
                 )}
               </form>
-            </motion.div>
+            </Reveal>
 
             {/* ── Sidebar ── */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.15 }}
-              className="space-y-5"
-            >
+            <Reveal delay={0.08} className="space-y-5">
               {/* Call card — bolder */}
               <div className="bg-[#2B4FCB] rounded-2xl p-8 text-white relative overflow-hidden">
                 {/* Decorative circle */}
@@ -340,7 +310,7 @@ export function Contact() {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </Reveal>
           </div>
         </div>
       </section>
