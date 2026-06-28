@@ -141,7 +141,7 @@ export function Testimonials() {
           <>
             Ce que disent
             <br />
-            <span className="text-[#2B4FCB]">nos clients</span>
+            nos clients.
           </>
         }
         image={temoignageHeroImg}

@@ -78,9 +78,9 @@ export function About() {
         label="À propos"
         title={
           <>
-            On déménage des gens
+            On déménage des gens,
             <br />
-            <span className="text-[#2B4FCB]">depuis 2020.</span> Pas des boîtes.
+            pas des boîtes.
           </>
         }
         description="Il y a une différence entre transporter des meubles et accompagner quelqu'un dans un moment de vie important. On a choisi la deuxième option."

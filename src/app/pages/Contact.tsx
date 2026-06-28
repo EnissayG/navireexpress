@@ -47,7 +47,7 @@ export function Contact() {
           <>
             Parlons de votre
             <br />
-            <span className="text-[#2B4FCB]">déménagement.</span>
+            déménagement.
           </>
         }
         description="Estimation gratuite, réponse rapide. Un vrai humain vous rappelle, pas un bot."

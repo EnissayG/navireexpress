@@ -120,7 +120,7 @@ export function Services() {
           <>
             Des solutions pour
             <br />
-            <span className="text-[#2B4FCB]">chaque situation</span>
+            chaque situation.
           </>
         }
         description="De la boîte de carton à la clé du nouveau domicile, Navire Express couvre l'ensemble du processus de déménagement."
