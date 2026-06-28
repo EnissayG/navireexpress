@@ -61,7 +61,7 @@ export function Contact() {
               <span className="text-[#2B4FCB]">déménagement.</span>
             </h1>
             <p className="text-[#555] leading-relaxed" style={{ fontSize: "clamp(15px, 1.5vw, 18px)" }}>
-              Estimation gratuite, réponse rapide. Un vrai humain vous rappelle — pas un bot.
+              Estimation gratuite, réponse rapide. Un vrai humain vous rappelle, pas un bot.
             </p>
           </motion.div>
         </div>
@@ -206,7 +206,7 @@ export function Contact() {
                     rows={5}
                     value={form.message}
                     onChange={handleChange}
-                    placeholder="Décrivez votre projet — adresses, date souhaitée, particularités..."
+                    placeholder="Décrivez votre projet : adresses, date souhaitée, particularités..."
                     className={`${inputClass} resize-none`}
                   />
                 </div>

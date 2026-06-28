@@ -78,7 +78,7 @@ function WaveUp() {
 const SERVICES = [
   { icon: Truck,        title: "Résidentiel",    desc: "Du studio à la grande maison, on s'adapte à votre réalité." },
   { icon: Building2,   title: "Commercial",     desc: "Bureaux et commerces déplacés avec le moins d'interruption possible." },
-  { icon: PackageCheck, title: "Emballage",     desc: "On amène le matériel, on emballe, on étiquette — vous n'avez rien à faire." },
+  { icon: PackageCheck, title: "Emballage",     desc: "On amène le matériel, on emballe, on étiquette. Vous n'avez rien à faire." },
   { icon: Users,        title: "Main-d'œuvre",  desc: "Besoin de bras? On loue notre équipe à l'heure, sans contrat." },
 ];
 
@@ -89,7 +89,7 @@ export function Home() {
       {/* ── Ticker ─────────────────────────────────────────────────────────── */}
       <Ticker />
 
-      {/* ── HERO — petite équipe locale, ton authentique ── */}
+      {/* Hero */}
       <section className="relative min-h-screen flex flex-col bg-white overflow-hidden">
 
         {/* Watermark local */}
@@ -130,10 +130,8 @@ export function Home() {
                 className="text-[#111] leading-[0.93]"
                 style={{ fontSize: "clamp(56px, 9vw, 128px)", fontWeight: 900, letterSpacing: "-0.04em" }}
               >
-                Petite<br />
-                <span style={{ color: "#E84B1B" }}>équipe.</span><br />
-                Gros<br />
-                soin.
+                Déménageurs<br />
+                <span style={{ color: "#E84B1B" }}>à Montréal.</span>
               </motion.h1>
 
               <motion.p
@@ -143,8 +141,7 @@ export function Home() {
                 className="text-[#555] leading-relaxed mt-8 mb-10 max-w-md"
                 style={{ fontSize: "clamp(15px, 1.4vw, 18px)" }}
               >
-                Déménagement résidentiel et commercial à Montréal.
-                Quelques déménagements par an — chacun traité avec le même sérieux.
+                Résidentiel et commercial. Devis clair, ponctualité, zéro frais cachés.
               </motion.p>
 
               <motion.div
@@ -169,17 +166,17 @@ export function Home() {
               </motion.div>
             </div>
 
-            {/* Camion — grand, visible seulement desktop */}
+            {/* Camion */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.85, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
-              className="hidden lg:flex justify-center items-center"
+              className="flex justify-center items-center"
             >
               <img
                 src={truckImg}
                 alt="Navire Express"
-                className="w-full max-w-[580px] h-auto"
+                className="w-full max-w-[420px] lg:max-w-[580px] h-auto"
                 style={{ filter: "drop-shadow(0 20px 40px rgba(0,0,0,0.10))" }}
               />
             </motion.div>
@@ -284,10 +281,10 @@ export function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#e4e4e4]">
             {[
-              { num: "01", title: "On arrive à l'heure. Point final.",    body: "Votre temps est précieux. Chaque retard vous coûte — en stress, en argent, en organisation. Depuis 5 ans, la ponctualité n'est pas une option pour nous." },
+              { num: "01", title: "On arrive à l'heure. Point final.",    body: "Votre temps est précieux. Chaque retard vous coûte en stress, en argent, en organisation. Depuis 5 ans, la ponctualité n'est pas une option pour nous." },
               { num: "02", title: "Votre facture ressemble à votre devis.", body: "Pas de frais « découverts en route ». On calcule tout à l'avance, on vous explique, et on s'y tient. C'est aussi simple que ça." },
               { num: "03", title: "On prend le temps de bien faire.",     body: "Piano au 4ᵉ sans ascenseur? Gros meuble serré? On n'a pas tout vu, mais on ne se précipite pas. Chaque déménagement, on le prépare comme si c'était le nôtre." },
-              { num: "04", title: "Joignables quand ça compte.",            body: "Pas de boîte vocale sans fin. Un vrai humain au (514) 839-0212 — on vous rappelle vite, même en soirée ou le week-end si c'est urgent." },
+              { num: "04", title: "Joignables quand ça compte.",            body: "Pas de boîte vocale sans fin. Un vrai humain au (514) 839-0212. On vous rappelle vite, même en soirée ou le week-end si c'est urgent." },
             ].map((item, i) => (
               <motion.div
                 key={i}

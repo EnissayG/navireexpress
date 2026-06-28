@@ -42,13 +42,13 @@ function WaveUp() {
 const MILESTONES = [
   { year: "2020", title: "On démarre", desc: "Navire Express naît d'une idée simple : faire un déménagement correctement, sans stress inutile et sans mauvaises surprises sur la facture." },
   { year: "2021", title: "Premiers clients", desc: "Quelques déménagements résidentiels dans le Plateau et Rosemont. Le bouche-à-oreille commence à faire son effet." },
-  { year: "2023", title: "On apprend en faisant", desc: "Plus de types de logements, premiers commerces. Chaque déménagement nous rend un peu plus efficaces — sans couper les coins." },
+  { year: "2023", title: "On apprend en faisant", desc: "Plus de types de logements, premiers commerces. Chaque déménagement nous rend un peu plus efficaces, sans couper les coins." },
   { year: "2025", title: "Aujourd'hui", desc: "Une petite équipe soudée, des clients qui reviennent et nous recommandent à leurs proches. C'est comme ça qu'on préfère grandir." },
 ];
 
 const STATS = [
   { n: "2020", label: "Lancé à Montréal", color: "#E84B1B" },
-  { n: "Local", label: "Petite équipe", color: "#2B4FCB" },
+  { n: "Local", label: "Équipe montréalaise", color: "#2B4FCB" },
   { n: "0", label: "Frais cachés", color: "#E84B1B" },
   { n: "Sur mesure", label: "Chaque déménagement", color: "#2B4FCB" },
 ];
@@ -56,7 +56,7 @@ const STATS = [
 const DIFFERENTIATORS = [
   {
     title: "Une équipe, pas une franchise.",
-    body: "Pas de sous-traitants mystères. Quand vous réservez Navire Express, c'est notre équipe qui se présente à votre porte — les mêmes que vous avez eu au téléphone.",
+    body: "Pas de sous-traitants mystères. Quand vous réservez Navire Express, c'est notre équipe qui se présente à votre porte, les mêmes que vous avez eu au téléphone.",
   },
   {
     title: "On vous dit non quand c'est non.",
@@ -123,13 +123,13 @@ export function About() {
               </h2>
               <div className="space-y-5 text-[#555] leading-relaxed text-[15px]">
                 <p>
-                  Montréal, 2020. Trop de déménagements ratés autour de nous — retards, casses, surprises sur la facture. On a décidé qu'on pouvait faire mieux.
+                  Montréal, 2020. Trop de déménagements ratés autour de nous : retards, casses, surprises sur la facture. On a décidé qu'on pouvait faire mieux.
                 </p>
                 <p>
                   Pas de discours marketing. Juste une équipe qui arrive à l'heure, qui traite vos affaires avec respect, et qui vous remet les clés sans drama.
                 </p>
                 <p>
-                  Quelques années plus tard, une poignée de familles et de commerces de Montréal nous ont fait confiance. Pas des centaines — mais chaque déménagement compte, et la plupart viennent aujourd'hui par recommandation.
+                  Quelques années plus tard, une poignée de familles et de commerces de Montréal nous ont fait confiance. Pas des centaines, mais chaque déménagement compte, et la plupart viennent aujourd'hui par recommandation.
                 </p>
               </div>
             </motion.div>
