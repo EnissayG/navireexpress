@@ -1,8 +1,7 @@
 import { Link } from "react-router";
 import { Phone } from "lucide-react";
 import { Reveal } from "../components/Reveal";
-import { PageHero } from "../components/PageHero";
-import aproposHeroImg from "../../imports/apropos.jpg";
+import { PageHeader, HeroItalicTail } from "../components/PageHeader";
 
 function PillSep({ label }: { label?: string }) {
   return (
@@ -74,18 +73,11 @@ export function About() {
   return (
     <div>
 
-      <PageHero
+      <PageHeader
         label="À propos"
-        title={
-          <>
-            On déménage des gens,
-            <br />
-            pas des boîtes.
-          </>
-        }
+        watermark="2020"
+        title={<HeroItalicTail line="On déménage des gens," tail="pas des boîtes." />}
         description="Il y a une différence entre transporter des meubles et accompagner quelqu'un dans un moment de vie important. On a choisi la deuxième option."
-        image={aproposHeroImg}
-        imageAlt="Équipe de déménageurs au travail"
       />
 
       <PillSep label="Notre histoire" />

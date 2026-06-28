@@ -138,8 +138,9 @@ export function Home() {
                 className="text-[#111] leading-[0.95] font-extrabold"
                 style={{ fontSize: "clamp(44px, 7.5vw, 96px)", letterSpacing: "-0.04em" }}
               >
-                Un service de
-                <br />
+                <span className="block text-[0.55em] font-semibold text-[#555] tracking-[-0.02em] leading-[1.1] mb-2">
+                  Un service de
+                </span>
                 déménagement fiable.
               </h1>
 

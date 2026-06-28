@@ -1,8 +1,7 @@
 import { Link } from "react-router";
 import { Star, Phone } from "lucide-react";
 import { Reveal } from "../components/Reveal";
-import { PageHero } from "../components/PageHero";
-import temoignageHeroImg from "../../imports/temoignage.jpg";
+import { PageHeader, HeroMark } from "../components/PageHeader";
 
 function PillSep({ label }: { label?: string }) {
   return (
@@ -135,17 +134,16 @@ export function Testimonials() {
   return (
     <div>
 
-      <PageHero
+      <PageHeader
         label="Témoignages"
+        watermark="★"
         title={
           <>
             Ce que disent
             <br />
-            nos clients.
+            <HeroMark>nos clients.</HeroMark>
           </>
         }
-        image={temoignageHeroImg}
-        imageAlt="Nouvelle maison, clés en main"
       >
         <div className="flex flex-wrap gap-0 mt-2">
           {[
@@ -169,9 +167,7 @@ export function Testimonials() {
             </div>
           ))}
         </div>
-      </PageHero>
-
-      <PillSep label="Témoignages" />
+      </PageHeader>
 
       {/* ── Testimonials masonry grid ── */}
       <section className="py-32 bg-[#f8f8f8]">

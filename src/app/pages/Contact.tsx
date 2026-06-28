@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { Phone, Mail, MapPin, Clock, Send, Instagram, Globe } from "lucide-react";
 import { Reveal } from "../components/Reveal";
-import { PageHero } from "../components/PageHero";
-import contactHeroImg from "../../imports/contact.jpg";
+import { PageHeader, HeroRuleTitle } from "../components/PageHeader";
 
 function PillSep({ label }: { label?: string }) {
   return (
@@ -41,21 +40,18 @@ export function Contact() {
   return (
     <div>
 
-      <PageHero
+      <PageHeader
         label="Nous joindre"
+        watermark="514"
         title={
-          <>
+          <HeroRuleTitle>
             Parlons de votre
             <br />
             déménagement.
-          </>
+          </HeroRuleTitle>
         }
         description="Estimation gratuite, réponse rapide. Un vrai humain vous rappelle, pas un bot."
-        image={contactHeroImg}
-        imageAlt="Conseiller au téléphone"
       />
-
-      <PillSep label="Nous joindre" />
 
       {/* ── Contact info strip ── */}
       <section className="py-12 bg-[#f8f8f8] border-b border-[#e8e8e8]">
